@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <title>Snowball Stats</title>
+    <style>
+        #content {
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="javascript:load('snob_basic');">Snob Basic</a> |
+    <a href="javascript:load('snob');">Snob</a> |
+    <a href="javascript:load('axial_basic');">Axial Basic</a> |
+    <a href="javascript:load('axial');">Axial</a> |
+    <a href="javascript:load('dist');">Dist</a>
+    <div id="content">
+        Click a link to view the data...
+    </div>
+    <script>
+        const get_data = async (path) => {
+            return new Promise((resolve, reject) => {
+                var xmlHttp = new XMLHttpRequest();
+                xmlHttp.open("GET", "/" + path);
+                xmlHttp.onload = () => {
+                    resolve(xmlHttp.responseText);
+                }
+                xmlHttp.onerror = () => {
+                    reject(`Couldn't load path /${path}`);
+                }
+                xmlHttp.send();
+            });
+        }
+        const load = async (path) => {
+            document.getElementById("content").innerHTML = await get_data(path);
+        }
+    </script>
+</body>
+
+</html>

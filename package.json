@@ -3,6 +3,7 @@
   "version": "1.4.9",
   "description": "Tracking some token and users stats for Snowball.",
   "scripts": {
+    "start": "node index.js",
     "snob": "node snob.js",
     "comp": "node comp.js",
     "dist": "node dist.js",
@@ -11,6 +12,7 @@
   "author": "Ncookie",
   "dependencies": {
     "axios": "^0.23.0",
-    "ethers": "^5.5.1"
+    "ethers": "^5.5.1",
+    "express": "^4.17.1"
   }
 }
